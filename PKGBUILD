@@ -7,13 +7,12 @@ pkgver=3.6.0
 pkgrel=1
 pkgdesc="A fast and efficient AUR helper"
 arch=('x86_64' 'aarch64')
-url="https://github.com/crystal-linux/amethyst"
+url="https://github.com/crystal-linux/$pkgname"
 license=('GPL3')
-source=("git+$url")
+source=("git+$url?rev=v$pkgver")
 sha256sums=('SKIP')
 depends=('git' 'binutils' 'fakeroot' 'pacman-contrib' 'vim' 'expac' 'less')
 makedepends=('cargo')
-conflicts=('ame')
 
 prepare() {
     cd "$srcdir/$pkgname"
