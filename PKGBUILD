@@ -1,11 +1,11 @@
-# Maintainer: Matt C     <matt[at]tar[dot]black>
-# Developer:  axtlos   <axtlos[at]tar[dot]black>
-# Developer:  Michal S <michal[at]tar[dot]black>
+# Maintainer: echo -n 'TWF0dCBDLiA8bWF0dEBnZXRjcnlzdC5hbD4='     | base64 -d
+# Developer:  echo -n 'YXh0bG9zIDxheHRsb3NAZ2V0Y3J5c3QuYWw+'     | base64 -d
+# Developer:  echo -n 'TWljaGFsIFMuIDxtaWNoYWxAZ2V0Y3J5c3QuYWw+' | base64 -d
 
 pkgname=amethyst
 pkgver=3.6.0
 pkgrel=1
-pkgdesc="A fast and efficient AUR helper"
+pkgdesc='A fast and efficient AUR helper'
 arch=('x86_64' 'aarch64')
 url="https://github.com/crystal-linux/$pkgname"
 license=('GPL3')
