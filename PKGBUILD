@@ -11,7 +11,15 @@ url="https://github.com/crystal-linux/$pkgname"
 license=('GPL3')
 source=("git+$url?rev=v$pkgver")
 sha256sums=('SKIP')
-depends=('git' 'binutils' 'fakeroot' 'pacman-contrib' 'vim' 'expac' 'less')
+depends=(
+    'git' 
+    'binutils' 
+    'fakeroot' 
+    'pacman-contrib' 
+    'vim' 
+    'expac' 
+    'less'
+)
 makedepends=('cargo')
 
 prepare() {
