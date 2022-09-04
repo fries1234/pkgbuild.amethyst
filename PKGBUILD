@@ -32,5 +32,5 @@ package() {
         -maxdepth 1 \
         -executable \
         -type f \
-        -exec install -Dm0755 -t "${pkgdir}/usr/bin/" {} +
+        -exec install -Dm0755 -t "$pkgdir/usr/bin/" {} +
 }
