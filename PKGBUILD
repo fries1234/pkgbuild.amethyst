@@ -9,7 +9,7 @@ pkgdesc='A fast and efficient AUR helper'
 arch=('x86_64' 'aarch64')
 url="https://github.com/crystal-linux/$pkgname"
 license=('GPL3')
-source=("git+$url?rev=v$pkgver")
+source=("git+$url#tag=v$pkgver")
 sha256sums=('SKIP')
 depends=(
     'git' 
