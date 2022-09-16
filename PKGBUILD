@@ -9,7 +9,7 @@ pkgdesc='A fast and efficient AUR helper'
 arch=('x86_64' 'aarch64')
 url="https://github.com/crystal-linux/$pkgname"
 license=('GPL3')
-source=("git+$url#tag=v$pkgver")
+source=("$pkgname-$pkgver-$pkgrel::git+$url#tag=v$pkgver")
 sha256sums=('SKIP')
 depends=(
     'git' 
@@ -23,12 +23,12 @@ depends=(
 makedepends=('cargo')
 
 prepare() {
-    cd "$srcdir/$pkgname"
+    cd "$srcdir/$pkgname-$pkgver-$pkgrel"
     cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
 }
 
 build() {
-    cd "$srcdir/$pkgname"
+    cd "$srcdir/$pkgname-$pkgver-$pkgrel"
     export RUSTUP_TOOLCHAIN=nightly
     export CARGO_TARGET_DIR=target
     export AMETHYST_CODENAME="Funky Fish"
@@ -36,7 +36,7 @@ build() {
 }
 
 package() {
-    cd "$srcdir/$pkgname"
+    cd "$srcdir/$pkgname-$pkgver-$pkgrel"
     find target/release \
         -maxdepth 1 \
         -executable \
