@@ -3,7 +3,7 @@
 # Contributor:  echo -n 'TWljaGFsIFMuIDxtaWNoYWxAZ2V0Y3J5c3QuYWw+' | base64 -d
 
 pkgname=amethyst
-pkgver=3.6.0
+pkgver=4.0.0
 pkgrel=1
 pkgdesc='A fast and efficient AUR helper'
 arch=('x86_64' 'aarch64')
@@ -31,6 +31,7 @@ build() {
     cd "$srcdir/$pkgname"
     export RUSTUP_TOOLCHAIN=nightly
     export CARGO_TARGET_DIR=target
+    export AMETHYST_CODENAME="Funky Fish"
     cargo build --frozen --release
 }
 
