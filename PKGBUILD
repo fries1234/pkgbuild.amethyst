@@ -22,6 +22,8 @@ depends=(
     'less'
 )
 makedepends=('cargo')
+conflicts=('amethyst')
+replaces=('amethyst')
 
 prepare() {
     cd "$srcdir/$_pkgname-$pkgver"
