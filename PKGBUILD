@@ -2,33 +2,34 @@
 # Contributor:  echo -n 'YXh0bG9zIDxheHRsb3NAZ2V0Y3J5c3QuYWw+'     | base64 -d
 # Contributor:  echo -n 'TWljaGFsIFMuIDxtaWNoYWxAZ2V0Y3J5c3QuYWw+' | base64 -d
 
-pkgname=amethyst
+pkgname=ame
+_pkgname=amethyst
 pkgver=4.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc='A fast and efficient AUR helper'
 arch=('x86_64' 'aarch64')
-url="https://github.com/crystal-linux/$pkgname"
+url="https://github.com/crystal-linux/$_pkgname"
 license=('GPL3')
-source=("$pkgname-$pkgver-$pkgrel::git+$url#tag=v$pkgver")
-sha256sums=('SKIP')
+source=("$_pkgname-$pkgver-$pkgrel::$url/archive/v$pkgver.tar.gz")
+sha256sums=('ae1e6336177b6fa64536c9a8876ba0bac510ac528153133b67cf3f5046b43583')
 depends=(
-    'git' 
-    'binutils' 
-    'fakeroot' 
-    'pacman-contrib' 
-    'vim' 
-    'expac' 
+    'git'
+    'binutils'
+    'fakeroot'
+    'pacman-contrib'
+    'vim'
+    'expac'
     'less'
 )
 makedepends=('cargo')
 
 prepare() {
-    cd "$srcdir/$pkgname-$pkgver-$pkgrel"
+    cd "$srcdir/$_pkgname-$pkgver"
     cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
 }
 
 build() {
-    cd "$srcdir/$pkgname-$pkgver-$pkgrel"
+    cd "$srcdir/$_pkgname-$pkgver"
     export RUSTUP_TOOLCHAIN=nightly
     export CARGO_TARGET_DIR=target
     export AMETHYST_CODENAME="Funky Fish"
@@ -36,10 +37,8 @@ build() {
 }
 
 package() {
-    cd "$srcdir/$pkgname-$pkgver-$pkgrel"
-    find target/release \
-        -maxdepth 1 \
-        -executable \
-        -type f \
-        -exec install -Dm0755 -t "$pkgdir/usr/bin/" {} +
+    cd "$srcdir/$_pkgname-$pkgver"
+    install -Dm 755 "target/release/$pkgname" "$pkgdir/usr/bin/$pkgname"
+    install -Dm 644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+    install -Dm 644 docs/CONFIG.md "$pkgdir/usr/share/doc/$pkgname/CONFIG.md"
 }
