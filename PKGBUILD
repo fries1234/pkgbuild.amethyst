@@ -4,14 +4,14 @@
 
 pkgname=ame
 _pkgname=amethyst
-pkgver=4.0.0
-pkgrel=2
+pkgver=4.0.1
+pkgrel=1
 pkgdesc='A fast and efficient AUR helper'
 arch=('x86_64' 'aarch64')
 url="https://github.com/crystal-linux/$_pkgname"
 license=('GPL3')
 source=("$_pkgname-$pkgver-$pkgrel::$url/archive/v$pkgver.tar.gz")
-sha256sums=('ae1e6336177b6fa64536c9a8876ba0bac510ac528153133b67cf3f5046b43583')
+sha256sums=('37c550ad085b1da610f3ec8a0889373e8eaef2800fb60f0411ef5701abe04491')
 depends=(
     'git'
     'binutils'
